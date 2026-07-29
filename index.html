@@ -132,10 +132,19 @@ nav {
 .work-item.reverse { direction: rtl; }
 .work-item.reverse > * { direction: ltr; }
 
+.work-item > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 1rem;
+    display: block;
+}
+
 .work-visual {
     aspect-ratio: 4/3;
-    background: #12121a;
-    border: 1px solid #1e1e28;
+    background: #f0ede6;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,12 +153,19 @@ nav {
     overflow: hidden;
     transition: border-color 0.4s;
 }
-.work-visual:hover { border-color: #2a2a38; }
+.work-visual:hover { border-color: rgba(0,0,0,0.12); }
 .work-visual::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(201,169,110,0.03), transparent);
+    background: linear-gradient(135deg, rgba(201,169,110,0.1), transparent);
+}
+.work-visual img {
+    max-width: 45%;
+    max-height: 45%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
 }
 
 .work-num {
@@ -260,7 +276,7 @@ footer {
 
     <!-- RINN -->
     <div class="work-item">
-        <img src="assets/images/seaa.jpg" alt="" class="">
+        <img src="assets/images/seaa.jpg" alt="">
         <div class="work-info">
             <p class="work-num">01</p>
             <h2 class="work-title">RINN</h2>
@@ -275,7 +291,7 @@ footer {
 
     <!-- COFEE BEAN -->
     <div class="work-item reverse">
-        <img src="assets/images/discount-img.jpg" alt="" class="">
+        <img src="assets/images/discount-img.jpg" alt="">
         <div class="work-info">
             <p class="work-num">02</p>
             <h2 class="work-title">Coffee Bean</h2>
@@ -290,7 +306,7 @@ footer {
 
     <!-- Harmonic Bloom -->
     <div class="work-item">
-       <img src="assets/images/cherryblossum.jpg" alt="" class="">
+        <img src="assets/images/cherryblossum.jpg" alt="">
         <div class="work-info">
             <p class="work-num">03</p>
             <h2 class="work-title">Harmonic Bloom</h2>
@@ -304,14 +320,17 @@ footer {
     </div>
 
     <!-- Kredo -->
-    <div class="work-item">
-       <img src="assets/images/kredo-logo.jpg" alt="" class="">
+    <div class="work-item reverse">
+        <div class="work-visual">
+            <img src="assets/images/kredo-logo.png" alt="Kredo logo">
+        </div>
         <div class="work-info">
             <p class="work-num">04</p>
             <h2 class="work-title">Kredo online</h2>
-            <span class="work-tag">MOTION EXPERIMENT</span>
+            <span class="work-tag">BRAND IDENTITY</span>
             <p class="work-desc">
-               
+                A clean online branding project.<br>
+                HTML / CSS / JavaScript
             </p>
             <a href="works/KREDO/index.html" class="work-link">View Project</a>
         </div>
