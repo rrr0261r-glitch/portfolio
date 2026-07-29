@@ -140,6 +140,22 @@ nav {
     display: block;
 }
 
+.work-photo-crop {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.work-photo-crop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% 60%;
+    transform: scale(1.35);
+    transform-origin: 65% 60%;
+    display: block;
+}
+
 .work-visual {
     aspect-ratio: 4/3;
     background: #f0ede6;
@@ -306,7 +322,9 @@ footer {
 
     <!-- Harmonic Bloom -->
     <div class="work-item">
-        <img src="assets/images/cherryblossum.jpg" alt="">
+        <div class="work-photo-crop">
+            <img src="assets/images/cherryblossum.jpg" alt="">
+        </div>
         <div class="work-info">
             <p class="work-num">03</p>
             <h2 class="work-title">Harmonic Bloom</h2>
