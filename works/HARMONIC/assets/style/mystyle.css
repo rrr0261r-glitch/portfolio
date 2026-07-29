@@ -1,0 +1,185 @@
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --ink:    #0d0c0b;
+  --cream:  #f0ebe3;
+  --sakura: #e8c4bc;
+  --mist:   #b8b2aa;
+  --moss:   #3d4235;
+}
+
+html { scroll-behavior: auto; }
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── Progress bar ─── */
+#pbar {
+  position: fixed; top: 0; left: 0; z-index: 999;
+  height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--moss), var(--sakura));
+}
+
+/* ─── Header ─── */
+#hdr {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+  padding: 3.2vh 5vw;
+  display: flex; justify-content: space-between; align-items: center;
+  mix-blend-mode: difference;
+}
+.logo {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  letter-spacing: .3em; color: var(--cream);
+}
+
+/* ─── Hero sections ─── */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex; align-items: flex-end;
+  overflow: hidden;
+}
+
+/* 写真レイヤー */
+.hero .layer {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transform: scale(1.08);
+  transition: transform 1.2s cubic-bezier(.25,.46,.45,.94);
+  filter: grayscale(20%) contrast(1.05);
+  height: 100%;
+  
+}
+
+
+/* スクロールで入ってきたらzoom解除 */
+.hero.in-view .layer {
+  transform: scale(1.0);
+}
+
+/* 暗いオーバーレイ */
+.hero .overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(13,12,11,.85) 0%,
+    rgba(13,12,11,.2) 50%,
+    rgba(13,12,11,.4) 100%
+  );
+  z-index: 1;
+}
+
+/* テキストブロック */
+.hero .text {
+  position: relative; z-index: 2;
+  padding: 0 7vw 10vh;
+}
+
+/* 文字のスライドアップ */
+.hero .text .num,
+.hero .text h1,
+.hero .text p {
+  display: block;
+  overflow: hidden;
+}
+
+.hero .text .num span,
+.hero .text h1,
+.hero .text p {
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform .9s cubic-bezier(.76,0,.24,1), opacity .9s ease;
+}
+
+/* in-viewで発火 */
+.hero.in-view .text h1,
+.hero.in-view .text p {
+  transform: translateY(0); opacity: 1;
+}
+.hero.in-view .text .num span {
+  transform: translateY(0); opacity: 1;
+}
+
+/* stagger */
+.hero .text .num span { transition-delay: .0s; }
+.hero .text h1         { transition-delay: .12s; }
+.hero .text p          { transition-delay: .24s; }
+
+/* 番号 */
+.num {
+  font-size: clamp(.6rem, .9vw, .8rem);
+  letter-spacing: .5em;
+  color: var(--sakura);
+  font-style: italic;
+  display: block;
+  margin-bottom: .6rem;
+}
+.num span { display: block; }
+
+/* H1 */
+.hero .text h1 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .05em;
+  color: var(--cream);
+}
+
+/* 英語h1はCormorant */
+.hero:nth-child(2) .text h1,
+.hero:nth-child(3) .text h1,
+.hero:nth-child(4) .text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(3rem, 9vw, 8rem);
+}
+
+/* サブテキスト */
+.hero .text p {
+  font-size: clamp(.75rem, 1.1vw, 1rem);
+  font-style: italic;
+  letter-spacing: .2em;
+  color: var(--mist);
+  margin-top: .6rem;
+}
+
+/* ─── Divider ─── */
+.ch-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sakura), transparent);
+  opacity: .15;
+}
+
+/* ─── Outro ─── */
+.outro {
+  height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 1.2rem;
+  text-align: center;
+}
+.outro h2 {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700; letter-spacing: .2em;
+  color: var(--cream);
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.outro p {
+  font-size: clamp(.65rem, 1vw, .9rem);
+  font-style: italic; letter-spacing: .4em; color: var(--mist);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 1s ease .2s, transform 1s ease .2s;
+}
+.outro.in-view h2,
+.outro.in-view p { opacity: 1; transform: translateY(0); } 
+

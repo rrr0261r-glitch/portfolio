@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RINNE - Item</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="simple-page">
+<nav class="nav-logo">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo-link"><h2 class="logo">RINNE</h2></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#items">Items</a></li>
+      <li><a href="story.html">Our Story</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="simple-hero">
+  <div>
+    <p class="simple-kicker">RINNE Item</p>
+    <h1 class="simple-title" id="productName">sun-yellow</h1>
+    <p class="simple-copy" id="productCopy">A soft summer piece made for warm light, salt air, and easy days.</p>
+    <div class="simple-price" id="productPrice">$40</div>
+    <div class="simple-actions">
+      <a href="../index.html#items" class="btn-dark">Back to Items</a>
+      <a href="checkout.html" class="btn-outline">Checkout</a>
+    </div>
+  </div>
+  <div class="simple-hero-image">
+    <img id="productImage" src="images/bikini-yellow.jpg" alt="sun-yellow">
+  </div>
+</main>
+
+<script>
+(function () {
+  var products = {
+    "sun-yellow": ["$40", "images/bikini-yellow.jpg", "A bright piece for slow beach mornings and golden afternoon light."],
+    "where to go": ["$25", "images/boho.jpg", "A light layer for wandering, packing small and moving easily."],
+    "Red Bikini": ["$50", "images/bikibi-red.jpg", "Clean lines and warm color for days that stay in memory."],
+    "naturura": ["$45", "images/bikibi-brown.jpg", "A grounded neutral made to sit softly against summer skin."],
+    "In Boho": ["$25", "images/green.jpg", "A relaxed print with a natural, sun-faded mood."],
+    "Wave Cover-up": ["$40", "images/bikini-blue.jpg", "An easy blue layer for after-swim shade and open air."]
+  };
+  var params = new URLSearchParams(window.location.search);
+  var name = params.get("item") || "sun-yellow";
+  var product = products[name] || products["sun-yellow"];
+  document.title = "RINNE - " + name;
+  document.getElementById("productName").textContent = name;
+  document.getElementById("productPrice").textContent = product[0];
+  document.getElementById("productImage").src = product[1];
+  document.getElementById("productImage").alt = name;
+  document.getElementById("productCopy").textContent = product[2];
+})();
+</script>
+</body>
+</html>

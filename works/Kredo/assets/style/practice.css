@@ -1,0 +1,261 @@
+body {
+    font-family: "Merriweather", serif;
+}
+
+.flex-container {
+    display: flex;      /*横並び*/
+    justify-content: center;/*中央寄せ*/
+    /*justify-content: space-between;*/ /*両端寄せ*/
+    /*justify-content: space-around;*/ /*等間隔*/
+    /*justify-content: flex-start;*/ /*左寄せ*/
+    /*justify-content: flex-end;*/ /*右寄せ*/
+    align-items: flex-end;/*親要素から下寄せ*/
+    list-style-type: none;/*リストの点を消す*/
+    font-family: "Merriweather", serif;/*フォントを変更*/
+    
+
+}
+
+.flex-container a{
+    margin: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;/*文字を太くする*/
+}
+
+.flex-container a img {
+    height: 50px;
+}
+
+.Header { /*大きく括ってあげる*/
+    background-image: url(../images/atf.jpg);
+    background-size: cover;
+    background-position: bottom;
+    height: 400px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    padding-bottom: 60px;
+    font-family: "Merriweather", serif;
+}
+
+.Header-text {
+    text-align: right;
+    margin-right: 5%;
+    width: 50%;
+}
+
+.Header-text h1 {
+    color: white;
+    line-height: 1.2;  /*行間調整*/
+    margin-bottom: 8px;
+}
+
+.Header-text p {
+    font-size: 18px;
+    color: white;
+    line-height: 1.2;
+}
+
+.Header-text a {
+    display: inline-block;
+    /*margin-top: 20px;*/
+    padding: 8px 16px;
+    background-color: rgb(179, 159, 109);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+h2{ 
+    text-align: center;
+    font-family: "Merriweather", serif;
+    margin-top: 40px;
+    color: black;
+}
+
+.about {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 12%;
+    margin: 40px 0;
+}
+
+.about img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.about-text {
+    max-width: 800px;
+    margin-left: 40px;
+    text-align: left;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+}
+
+.about-text a {
+     display: inline-block;
+    /*margin-top: 20px;*/
+    padding: 8px 16px;
+    background-color: rgb(179, 159, 109);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.about-2 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: 12%;
+    margin: 40px 0;
+}
+
+.about-2 img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.about-2text {
+    max-width: 800px;
+    margin-right: 40px;
+    text-align: right;
+}
+
+.about-2text p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: black;
+}
+
+.about-2text a {
+    display: inline-block;
+    /*margin-top: 20px;*/
+    padding: 8px 16px;
+    background-color: rgb(179, 159, 109);
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.footer {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgb(179, 159, 109);
+    padding: 2em 7.5%;
+    height: 400px;
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 30px;
+    width: 50%;
+}
+
+.section h2 {
+    font-family: "Merriweather", serif;
+    color: black;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.section form {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 10px 20px;
+    align-items: center;
+   /* width: 100%;*/
+}
+
+.section form input {
+    width: 100%;
+    padding: 6px 8px;
+    box-sizing: border-box;
+}
+
+.section form a {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 10px;
+    padding: 8px 150px;
+    background-color:black;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 30px;
+}
+
+.list h2 {
+    font-family: "Merriweather", serif;
+    color: black;
+    margin-bottom: 20px;
+}
+
+thead {
+    background-color: #19100f;
+    color: #fff;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: separate;
+    width: 100%;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px 16px;
+    background-color: transparent;
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #f1f4e3;
+}
+
+tbody tr td.reserved {
+    background-color: #4caf50;
+    color: black;
+}
+
+tbody tr td.pending {
+    background-color: #ff9800;
+    color: black;
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+}

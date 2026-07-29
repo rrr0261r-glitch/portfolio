@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RINNE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Raleway:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles/styles.css">
+<link rel="stylesheet" href="assets/styles/interactive.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-logo">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-link"><h2 class="logo">RINNE</h2></a>
+    <ul class="nav-links">
+      <li><a href="#items">Items</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+    <span class="nav-cart" id="cartOpen" role="button" tabindex="0">Cart (<span id="cartCount">0</span>)</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="banner">
+  <div class="banner-text">
+    <h2>Salt in the air <span>sun on your skin...</span></h2>
+    <a href="#items">Learn More</a>
+  </div>
+</div>
+
+<!-- ITEMS -->
+<section id="items">
+  <div class="section-header">
+    <span class="section-title">Items</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid" id="grid">
+    <div class="item" data-name="sun-yellow" data-price="40" role="link" tabindex="0">
+      <div class="item-img" data-label="sun-yellow" style="--tint:#D9C48A"><img src="assets/images/bikini-yellow.jpg" alt="sun-yellow"></div>
+      <div class="item-info"><p class="item-name">sun-yellow</p><p class="item-price">$40</p><button class="add-bag">Add to bag</button></div>
+    </div>
+    <div class="item" data-name="where to go" data-price="25" role="link" tabindex="0">
+      <div class="item-img" data-label="where to go" style="--tint:#C3B49B"><img src="assets/images/boho.jpg" alt="where to go"></div>
+      <div class="item-info"><p class="item-name">where to go</p><p class="item-price">$25</p><button class="add-bag">Add to bag</button></div>
+    </div>
+    <div class="item" data-name="Red Bikini" data-price="50" role="link" tabindex="0">
+      <div class="item-img" data-label="Red Bikini" style="--tint:#C08A82"><img src="assets/images/bikibi-red.jpg" alt="Red Bikini"></div>
+      <div class="item-info"><p class="item-name">Red Bikini</p><p class="item-price">$50</p><button class="add-bag">Add to bag</button></div>
+    </div>
+    <div class="item" data-name="naturura" data-price="45" role="link" tabindex="0">
+      <div class="item-img" data-label="naturura" style="--tint:#B7A38C"><img src="assets/images/bikibi-brown.jpg" alt="naturura"></div>
+      <div class="item-info"><p class="item-name">naturura</p><p class="item-price">$45</p><button class="add-bag">Add to bag</button></div>
+    </div>
+    <div class="item" data-name="In Boho" data-price="25" role="link" tabindex="0">
+      <div class="item-img" data-label="In Boho" style="--tint:#A6B49E"><img src="assets/images/green.jpg" alt="In Boho"></div>
+      <div class="item-info"><p class="item-name">In Boho</p><p class="item-price">$25</p><button class="add-bag">Add to bag</button></div>
+    </div>
+    <div class="item" data-name="Wave Cover-up" data-price="40" role="link" tabindex="0">
+      <div class="item-img" data-label="Wave Cover-up" style="--tint:#93A9B4"><img src="assets/images/bikini-blue.jpg" alt="Wave Cover-up"></div>
+      <div class="item-info"><p class="item-name">Wave Cover-up</p><p class="item-price">$40</p><button class="add-bag">Add to bag</button></div>
+    </div>
+  </div>
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="banner-title">Where <br><em>summer</em><br>lives.</div>
+  <div>
+    <p class="banner-copy">Just you, as you are. A return to natural beauty — not as something to achieve, but as something to remember.</p>
+    <a href="assets/story.html" class="btn-light">Our Story</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-socials">
+  <div class="social-title">Our Socials</div>
+  <div class="social-widgets">
+    <a href="https://www.facebook.com" target="_blank" rel="noopener"><img src="assets/images/icon-fb.png" alt="Facebook"></a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener"><img src="assets/images/icon-ig.png" alt="Instagram"></a>
+    <a href="https://www.twitter.com" target="_blank" rel="noopener"><img src="assets/images/icon-tw.png" alt="Twitter"></a>
+  </div>
+  <div class="footer-copy">&copy; 2026 RINNE. All in summer</div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="cart-scrim" id="cartScrim"></div>
+<aside class="cart-drawer" id="cart" aria-hidden="true" aria-label="Shopping bag">
+  <div class="cart-drawer-head">
+    <h3>Your bag</h3>
+    <button class="cart-drawer-close" id="cartClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="cart-drawer-body" id="cartBody"></div>
+  <div class="cart-drawer-foot">
+    <div class="cart-subtotal"><span>Subtotal</span><strong id="cartTotal">$0</strong></div>
+    <button class="cart-checkout" id="cartCheckout" disabled>Checkout</button>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/scripts/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonic Bloom</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/mystyle.css">
+    </head>
+
+    <body>
+
+        <div id="pbar"></div>
+
+        <header id="hdr">
+            <div class="logo">Harmonic Bloom</div>
+        </header>
+
+        <section class="hero">
+            <div class="layer" style="background-image:url('assets/images/midori.jpg');"></div>
+            <div class="overlay"></div>
+
+            <div class="text">
+                <span class="num">01 / 静寂</span>
+                <h1>静寂</h1>
+                <p>stillness as a beginning</p>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="layer" style="background-image:url('assets/images/S__47382534.jpg');"></div>
+            <div class="overlay"></div>
+
+            <div class="text">
+                <h1>encounter</h1>
+                <p>strength meets silence</p>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="layer" style="background-image:url('assets/images/ki.jpg');"></div>
+            <div class="overlay"></div>
+
+            <div class="text">
+                <h1>bloom</h1>
+                <p>境界を越えて 花が開く</p>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="layer" style="background-image:url('assets/images/cherryblossum.jpg');"></div>
+            <div class="overlay"></div>
+
+            <div class="text">
+                <h1>harmony</h1>
+                <p>where cultures bloom as one</p>
+            </div>
+        </section>
+
+        <section class="outro">
+            <h2>Harmonic Bloom</h2>
+            <p>a portfolio by rin</p>
+        </section>
+
+        <script>
+        /* Progress bar */
+        const pbar = document.getElementById('pbar');
+        window.addEventListener('scroll', () => {
+            const h = document.body.scrollHeight - window.innerHeight;
+            pbar.style.width = (window.scrollY / h * 100) + '%';
+        }, { passive: true });
+
+        /* IntersectionObserver でin-viewクラスを付与 */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('in-view');
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll('.hero, .outro').forEach(el => observer.observe(el));
+        </script>
+    </body>
+</html>

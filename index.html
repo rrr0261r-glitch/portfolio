@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rin — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: #0a0a0f;
+    color: #e8e4dc;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+}
+
+/* ナビ */
+nav {
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(10px);
+}
+.nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    color: #c9a96e;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: #888;
+    transition: color 0.3s;
+}
+.nav-links a:hover { color: #e8e4dc; }
+
+/* ヒーロー */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 20%; right: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(201,169,110,0.04);
+    pointer-events: none;
+}
+.hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    color: #c9a96e;
+    margin-bottom: 1.5rem;
+}
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    color: #f0ede6;
+}
+.hero h1 em {
+    font-style: italic;
+    color: #c9a96e;
+}
+.hero-desc {
+    font-size: 0.9rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    line-height: 1.9;
+    max-width: 400px;
+    margin-bottom: 3rem;
+}
+.hero-scroll {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.hero-scroll::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: #555;
+}
+
+/* 作品セクション */
+.works {
+    padding: 6rem 3rem;
+}
+.works-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    color: #555;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+}
+
+.work-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 0;
+    border-top: 1px solid #1a1a22;
+}
+.work-item:last-child { border-bottom: 1px solid #1a1a22; }
+.work-item.reverse { direction: rtl; }
+.work-item.reverse > * { direction: ltr; }
+
+.work-visual {
+    aspect-ratio: 4/3;
+    background: #12121a;
+    border: 1px solid #1e1e28;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s;
+}
+.work-visual:hover { border-color: #2a2a38; }
+.work-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,0.03), transparent);
+}
+
+.work-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.work-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #f0ede6;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+}
+.work-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: #c9a96e;
+    border: 1px solid rgba(201,169,110,0.3);
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1.2rem;
+}
+.work-desc {
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+}
+.work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: #888;
+    transition: color 0.3s;
+    text-transform: uppercase;
+}
+.work-link:hover { color: #c9a96e; }
+.work-link::after {
+    content: '→';
+    transition: transform 0.3s;
+}
+.work-link:hover::after { transform: translateX(4px); }
+
+/* フッター */
+footer {
+    padding: 3rem;
+    border-top: 1px solid #1a1a22;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #c9a96e;
+    letter-spacing: 0.2em;
+}
+.footer-copy {
+    font-size: 0.7rem;
+    color: #444;
+    letter-spacing: 0.15em;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    nav { padding: 1.5rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.5rem; }
+    .works { padding: 4rem 1.5rem; }
+    .work-item { grid-template-columns: 1fr; gap: 2rem; }
+    .work-item.reverse { direction: ltr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">RIN</div>
+    <ul class="nav-links">
+        <li><a href="#works">Works</a></li>
+        <li><a href="mailto:">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ヒーロー -->
+<section class="hero">
+    <p class="hero-eyebrow">Web Developer & Designer</p>
+    <h1>Hello,<br>I'm <em>Rin.</em></h1>
+    <p class="hero-desc">
+        Osaka, Japan — based in Cebu, Philippines.<br>
+        Building clean, beautiful websites<br>with attention to detail.
+    </p>
+    <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- 作品一覧 -->
+<section class="works" id="works">
+    <p class="works-label">Selected Works</p>
+
+    <!-- RINN -->
+    <div class="work-item">
+        <img src="assets/images/seaa.jpg" alt="" class="">
+        <div class="work-info">
+            <p class="work-num">01</p>
+            <h2 class="work-title">RINN</h2>
+            <span class="work-tag">FASHION E-COMMERCE</span>
+            <p class="work-desc">
+                A minimalist swimwear brand website.<br>
+                HTML / CSS / Bootstrap
+            </p>
+            <a href="works/RINN/index.html" class="work-link">View Project</a>
+        </div>
+    </div>
+
+    <!-- COFEE BEAN -->
+    <div class="work-item reverse">
+        <img src="assets/images/discount-img.jpg" alt="" class="">
+        <div class="work-info">
+            <p class="work-num">02</p>
+            <h2 class="work-title">Coffee Bean</h2>
+            <span class="work-tag">CAFÉ WEBSITE</span>
+            <p class="work-desc">
+                A cozy café homepage with warm aesthetics.<br>
+                HTML / CSS / Bootstrap
+            </p>
+            <a href="works/COFEEBEAN/index.html" class="work-link">View Project</a>
+        </div>
+    </div>
+
+    <!-- Harmonic Bloom -->
+    <div class="work-item">
+       <img src="assets/images/cherryblossum.jpg" alt="" class="">
+        <div class="work-info">
+            <p class="work-num">03</p>
+            <h2 class="work-title">Harmonic Bloom</h2>
+            <span class="work-tag">MOTION EXPERIMENT</span>
+            <p class="work-desc">
+                A motion & animation practice project.<br>
+                HTML / CSS / JavaScript
+            </p>
+            <a href="works/HARMONIC/index.html" class="work-link">View Project</a>
+        </div>
+    </div>
+
+    <!-- Kredo -->
+    <div class="work-item">
+       <img src="assets/images/kredo-logo.jpg" alt="" class="">
+        <div class="work-info">
+            <p class="work-num">04</p>
+            <h2 class="work-title">Kredo online</h2>
+            <span class="work-tag">MOTION EXPERIMENT</span>
+            <p class="work-desc">
+               
+            </p>
+            <a href="works/KREDO/index.html" class="work-link">View Project</a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <div class="footer-logo">RIN</div>
+    <div class="footer-copy">© 2026 Rin. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
