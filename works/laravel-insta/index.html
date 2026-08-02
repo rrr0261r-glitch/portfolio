@@ -25,17 +25,12 @@ main {
 .preview {
     aspect-ratio: 4 / 3;
     border-radius: 1rem;
-    background:
-        linear-gradient(135deg, rgba(201,169,110,0.12), transparent 55%),
-        #f0ede6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
 }
 .preview img {
-    width: min(48%, 220px);
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 .eyebrow {
@@ -141,7 +136,7 @@ a {
         </p>
     </section>
     <div class="preview">
-        <img src="../../assets/images/remon.jpg" alt="Laravel Insta logo">
+        <img src="../../assets/images/remon.jpg" alt="">
     </div>
 </main>
 </body>
